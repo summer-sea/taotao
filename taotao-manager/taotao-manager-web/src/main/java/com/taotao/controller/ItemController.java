@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.taotao.common.pojo.EUDataGridResult;
 import com.taotao.pojo.TbItem;
 import com.taotao.service.ItemService;
 
@@ -19,10 +20,18 @@ public class ItemController {
 	@RequestMapping("item/{itemId}")
 	@ResponseBody
 	public TbItem getItemById(@PathVariable long itemId){
-		TbItem tbItem = itemService.getItemById(itemId);
-		
+		TbItem tbItem = itemService.getItemById(itemId);	
 		return tbItem;
+	}
+	
+	@RequestMapping("item/list")
+	@ResponseBody
+	public EUDataGridResult getItemList(Integer page,Integer rows){
+		//System.out.println("page:"+page+" rows:"+rows);
+		EUDataGridResult result =new EUDataGridResult();
+		result =itemService.getItemList(page, rows);
 		
+		return result;
 	}
 
 }
