@@ -16,7 +16,7 @@ import com.taotao.service.ItemCatService;
  * */
 @Controller
 @RequestMapping("/item/cat")
-public class ItemCaatController {
+public class ItemCatController {
 	
 	@Autowired
 	private ItemCatService catService;
